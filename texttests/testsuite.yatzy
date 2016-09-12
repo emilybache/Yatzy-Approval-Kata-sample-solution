@@ -1,0 +1,54 @@
+# The player scores the sum of all dice,
+# no matter what they read.
+Chance
+
+# If all dice have the same number,
+# the player scores 50 points.
+Yatzy
+
+#  The player scores the sum of the dice that reads one
+Ones
+
+#  The player scores the sum of the dice that reads two
+Twos
+
+#  The player scores the sum of the dice that reads three
+Threes
+
+#  The player scores the sum of the dice that reads four
+Fours
+
+#  The player scores the sum of the dice that reads five
+Fives
+
+#  The player scores the sum of the dice that reads six
+Sixes
+
+# If exactly two dice have the same value then
+#   the player scores the sum of the two highest matching dice.
+Pair
+
+# If exactly two dice have the same value and exactly
+#   two dice have a different value then the
+#   player scores the sum of these four dice.
+TwoPairs
+
+# If there are exactly three dice with the same number
+#   then the player scores the sum of these dice.
+ThreeOfAKind
+
+# If there are exactly four dice with the same number
+#   then the player scores the sum of these dice.
+FourOfAKind
+
+# When placed on "small straight", if the dice read
+#   1,2,3,4,5, the player scores 15 (the sum of all the dice).
+SmallStraight
+
+# When placed on "large straight", if the dice read
+#   2,3,4,5,6 the player scores 20 (the sum of all the dice).
+LargeStraight
+
+# If the dice are two of a kind and three of a different kind
+#   then the player scores the sum of all five dice.
+FullHouse
