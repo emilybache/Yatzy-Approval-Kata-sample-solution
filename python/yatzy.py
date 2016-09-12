@@ -4,7 +4,13 @@ import sys
 from collections import defaultdict
 
 def _parse_dice(dice_str):
-    return [int(d) for d in dice_str.split(',')]
+    dice = [int(d) for d in dice_str.split(',')]
+    if len(dice) != 5:
+        raise ValueError("Wrong number of dice. Expected 5, got {}".format(len(dice)))
+    outside_range = filter(lambda x: x < 1 or x > 6, dice)
+    if len(outside_range) > 0:
+        raise ValueError("Illegal dice values: {}".format(outside_range))
+    return dice
 
 def _frequencies(dice):
     frequencies = defaultdict(int)
@@ -112,5 +118,10 @@ if __name__ == "__main__":
 
     for dice_input in sys.stdin.readlines():
         dice_str = dice_input.strip()
-        dice = _parse_dice(dice_str)
-        print("""[{}] "{}": {}""".format(dice_str, category, score(dice, category)))
+        try:
+            dice = _parse_dice(dice_str)
+            points = score(dice, category)
+        except ValueError as e:
+            sys.stderr.write("ERROR in input '{}': {}\n".format(dice_str, e))
+            points = "BAD_INPUT"
+        print("""[{}] "{}": {}""".format(dice_str, category, points))
