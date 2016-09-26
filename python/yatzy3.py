@@ -15,7 +15,7 @@ class Yatzy:
         return total
 
     @staticmethod
-    def yatzy(dice):
+    def yatzy(d1, d2, d3, d4, d5):
         counts = [0]*(len(dice)+1)
         for die in dice:
             counts[die-1] += 1
@@ -53,7 +53,7 @@ class Yatzy:
         if (d4 == 2):
              sum += 2
         if (d5 == 2):
-             sum += 3
+             sum += 2
         return sum
 
     @staticmethod
@@ -105,6 +105,18 @@ class Yatzy:
         return sum
 
     @staticmethod
+    def calculate_fours(*args):
+        return Yatzy(*args).fours()
+
+    @staticmethod
+    def calculate_fives(*args):
+        return Yatzy(*args).fours()
+
+    @staticmethod
+    def calculate_sixes(d1,  d2,  d3,  d4,  d5):
+        return Yatzy(d1,  d2,  d3,  d4,  d5).sixes()
+
+    @staticmethod
     def score_pair( d1,  d2,  d3,  d4,  d5):
         counts = [0]*6
         counts[d1-1] += 1
@@ -129,7 +141,7 @@ class Yatzy:
         n = 0
         score = 0
         for i in range(6):
-            if (counts[6-i-1] == 2):
+            if (counts[6-i-1] >= 2):
                 n = n+1
                 score += (6-i)
 
@@ -161,7 +173,7 @@ class Yatzy:
         t[d4-1] += 1
         t[d5-1] += 1
         for i in range(6):
-            if (t[i] == 3):
+            if (t[i] >= 3):
                 return (i+1) * 3
         return 0
 
@@ -196,7 +208,7 @@ class Yatzy:
             tallies[3] == 1 and
             tallies[4] == 1
             and tallies[5] == 1):
-            return 15
+            return 20
         return 0
 
 
@@ -219,7 +231,6 @@ class Yatzy:
         for i in range(6):
             if (tallies[i] == 2):
                 _2 = True
-                _3 = True
                 _2_at = i+1
 
 
@@ -236,7 +247,8 @@ class Yatzy:
 
 CATEGORIES = {"chance": Yatzy.chance,
               "yatzy": Yatzy.yatzy,
-              "ones": Yatzy.ones, "twos": Yatzy.twos, "threes": Yatzy.threes, "fours": Yatzy.fours, "fives": Yatzy.fives, "sixes": Yatzy.sixes,
+              "ones": Yatzy.ones, "twos": Yatzy.twos, "threes": Yatzy.threes,
+              "fours": Yatzy.calculate_fours, "fives": Yatzy.calculate_fives, "sixes": Yatzy.calculate_sixes,
               "pair": Yatzy.score_pair, "threeofakind": Yatzy.three_of_a_kind, "fourofakind": Yatzy.four_of_a_kind,
               "smallstraight": Yatzy.smallStraight, "largestraight": Yatzy.largeStraight,
               "twopairs": Yatzy.two_pair, "fullhouse": Yatzy.fullHouse}
@@ -253,6 +265,9 @@ if __name__ == "__main__":
     category = None
     if len(sys.argv) > 1:
         category = sys.argv[1]
+    if not category in CATEGORIES.keys():
+        print("unknown category: {}".format(category))
+        sys.exit(-1)
 
     for dice_input in sys.stdin.readlines():
         dice_str = dice_input.strip()
