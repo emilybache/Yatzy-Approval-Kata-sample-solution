@@ -1,0 +1,2 @@
+ERROR in input '1,2,3,4,5': Input should contain a space separating dice and category
+ERROR in input '2,2,3,3,3 foobar': Unknown category: foobar

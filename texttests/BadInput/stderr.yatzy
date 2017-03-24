@@ -1,0 +1,5 @@
+ERROR in input '1,2,3 chance': Wrong number of dice. Expected 5, got 3
+ERROR in input '1,2,3,4,5,6 chance': Wrong number of dice. Expected 5, got 6
+ERROR in input 'fooba chance': invalid literal for int() with base 10: 'fooba'
+ERROR in input 'foobar chance': invalid literal for int() with base 10: 'foobar'
+ERROR in input '23,4,5,6,4 chance': Illegal dice values: [23]

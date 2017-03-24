@@ -1,0 +1,5 @@
+[1,2,3 chance] BAD_INPUT
+[1,2,3,4,5,6 chance] BAD_INPUT
+[fooba chance] BAD_INPUT
+[foobar chance] BAD_INPUT
+[23,4,5,6,4 chance] BAD_INPUT

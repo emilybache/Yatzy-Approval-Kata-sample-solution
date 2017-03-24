@@ -8,16 +8,11 @@ Viewing and Running the texttests
 
 (assuming you already have texttest installed, see http://texttest.org)
 
-You will need to point out the location of your clone of the code, so that texttest can find it. In your personal texttest config file $HOME/.texttest/config, include this:
+The simplest way is to open texttest like this:
 
-    [checkout_location]
-    yatzy:/home/demo/workspace/Yatzy-Approval-Kata-sample-solution
+	texttest -a yatzy -c $PWD -d $PWD/texttests 
 
-Then you can open the texttest GUI like this:
-
-    texttest -a yatzy -d /home/demo/workspace/Yatzy-Approval-Kata-sample-solution/texttests
-
-adjust /home/demo/workspace as appropriate for your machine
+Note that $PWD should automatically expand to the complete path to the current working directory. If it does not, insert it by hand instead.
 
 Yatzy rules
 -----------

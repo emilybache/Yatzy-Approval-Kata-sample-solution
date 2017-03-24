@@ -1,5 +1,0 @@
-ERROR in input '1,2,3': Wrong number of dice. Expected 5, got 3
-ERROR in input '1,2,3,4,5,6': Wrong number of dice. Expected 5, got 6
-ERROR in input 'fooba': invalid literal for int() with base 10: 'fooba'
-ERROR in input 'foobar': invalid literal for int() with base 10: 'foobar'
-ERROR in input '23,4,5,6,4': Illegal dice values: [23]
