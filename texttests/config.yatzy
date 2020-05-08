@@ -1,5 +1,5 @@
 # Full path to the System Under Test (or Java Main Class name)
-executable:${TEXTTEST_CHECKOUT}/python/texttest_adapter_yatzy1.py
+executable:${TEXTTEST_HOME}/python/texttest_adapter_yatzy1.py
 
 # Naming scheme to use for files for stdin,stdout and stderr
 filename_convention_scheme:standard
@@ -7,4 +7,3 @@ filename_convention_scheme:standard
 # Expanded name to use for application
 full_name:Yatzy
 
-default_checkout:yatzy
